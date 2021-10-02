@@ -1,0 +1,14 @@
+from mcpi.minecraft import Minecraft
+
+mc = Minecraft.create()
+
+def getArea():
+    x = True
+    while x == True:
+        for hitBlock in mc.events.pollBlockHits():
+            x, y, z = hitBlock.pos
+    return(x, y, z)
+
+while True:
+    x, y, z = getArea()
+    mc.postToChat(mc.getBlock(x, y, z))
